@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HW03">
         <activity
+            android:name=".resultform"
+            android:exported="false" />
+        <activity
             android:name=".registerform"
             android:exported="true">
             <intent-filter>

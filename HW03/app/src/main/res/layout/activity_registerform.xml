@@ -80,6 +80,7 @@
             android:gravity="center_horizontal"
             android:background="@drawable/edittext_background"
             android:layout_weight="1"
+            android:enabled="false"
             android:inputType="date"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
@@ -89,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:backgroundTint="@color/grey"/>
     </LinearLayout>
     <TextView
@@ -108,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
-            android:layout_marginRight="200dp"
+            android:layout_marginEnd="200dp"
             android:textStyle="bold"/>
         <RadioButton android:id="@+id/radio_female"
             android:layout_width="wrap_content"
@@ -157,7 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reset"
-            android:layout_marginRight="60dp"
+            android:layout_marginEnd="60dp"
             android:backgroundTint="@color/grey"
             />
         <Button
