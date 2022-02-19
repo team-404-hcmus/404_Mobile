@@ -11,14 +11,15 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class registerform extends AppCompatActivity {
+
     TextView username,password,retype,dob;
     Button reset,datePicker;
     String dob_data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registerform);
         username= findViewById(R.id.usernameInput);
         password= findViewById(R.id.passwordInput);
         retype= findViewById(R.id.retypeInput);
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 int year_present = calendar.get(Calendar.YEAR);
                 int month_present = calendar.get(Calendar.MONTH);
                 int day_present = calendar.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog= new DatePickerDialog(MainActivity.this,
+                DatePickerDialog datePickerDialog= new DatePickerDialog(registerform.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int year, int month, int day)
@@ -54,5 +55,4 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-
 }
