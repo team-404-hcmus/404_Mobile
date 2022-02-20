@@ -23,6 +23,7 @@ public class resultform extends AppCompatActivity {
         password = DataBundle.getString("password");
         dob = DataBundle.getString("dob");
         gender = DataBundle.getString("gender");
+        hobbies = DataBundle.getString("hobbies");
 
         username_view=findViewById(R.id.result_Username);
         username_view.setText(username);
@@ -32,6 +33,8 @@ public class resultform extends AppCompatActivity {
         dob_view.setText(dob);
         gender_view=findViewById(R.id.result_Gender);
         gender_view.setText(gender);
+        hobbies_view=findViewById(R.id.result_Hobbies);
+        hobbies_view.setText(hobbies);
 
         exitBtn=findViewById(R.id.exit_Button);
         exitBtn.setOnClickListener(new View.OnClickListener() {
