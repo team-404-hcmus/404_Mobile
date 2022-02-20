@@ -68,7 +68,7 @@ public class registerform extends AppCompatActivity {
                 if (radioButtonId == -1 || username_data.isEmpty() || password_data.isEmpty()
                 || retype_data.isEmpty()||dob_data==null) {
                     checkedToast=Toast.makeText(registerform.this,
-                            "Please fill out all information"+username_data, Toast.LENGTH_LONG);
+                            "Please fill out all information", Toast.LENGTH_LONG);
                     checkedToast.show();
                 }
 
