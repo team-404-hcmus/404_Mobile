@@ -11,7 +11,8 @@
         android:theme="@style/Theme.HW03">
         <activity
             android:name=".resultform"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".registerform"
             android:exported="true">

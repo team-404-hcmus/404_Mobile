@@ -17,11 +17,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:background="@drawable/result_background">
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_margin="10dp"
+
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:src="@drawable/avatar"
             app:civ_border_color="@color/black"
@@ -35,7 +36,7 @@
             android:layout_gravity="center"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="25dp"
+            android:textSize="30dp"
            />
     </LinearLayout>
     <LinearLayout
