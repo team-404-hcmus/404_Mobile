@@ -26,8 +26,7 @@ public class registerform extends Activity {
     RadioGroup gender;
     CheckBox tennis,futbal,others;
     String username_data,password_data,retype_data,dob_data,gender_data;
-    String hobbies=new String("");
-    ArrayList<String> hobby_data=new ArrayList<String>();
+    ArrayList<CheckBox> hobby_data=new ArrayList<CheckBox>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +43,9 @@ public class registerform extends Activity {
         dob=findViewById(R.id.dobInput);
         datePicker=findViewById(R.id.dobBtn);
         //Click Reset Button
+        hobby_data.add(tennis);
+        hobby_data.add(futbal);
+        hobby_data.add(others);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,18 +67,18 @@ public class registerform extends Activity {
                 password_data=password.getText().toString();
                 retype_data=retype.getText().toString();
                 int radioButtonId=gender.getCheckedRadioButtonId();
-                if(tennis.isChecked())
-                {
-                    hobby_data.add("Tennis");
-                }
-                if(futbal.isChecked())
-                {
-                    hobby_data.add("Futbal");
-                }
-                if(others.isChecked())
-                {
-                    hobby_data.add("Others");
-                }
+//                if(tennis.isChecked())
+//                {
+//                    hobby_data.add("Tennis");
+//                }
+//                if(futbal.isChecked())
+//                {
+//                    hobby_data.add("Futbal");
+//                }
+//                if(others.isChecked())
+//                {
+//                    hobby_data.add("Others");
+//                }
                 Toast checkedToast;
 
                 if (radioButtonId == -1 || username_data.isEmpty() || password_data.isEmpty()
@@ -91,6 +93,7 @@ public class registerform extends Activity {
                     checkedToast=Toast.makeText(registerform.this,
                             "Retype does not match password", Toast.LENGTH_LONG);
                     checkedToast.show();
+
                 }
                 else
                 {
@@ -137,9 +140,13 @@ public class registerform extends Activity {
         myBundle.putString ("password", password_data);
         myBundle.putString ("dob", dob_data);
         myBundle.putString ("gender", gender_data);
+        String hobbies=new String("");
+        for (CheckBox chb:hobby_data) {
+            if(chb.isChecked())
+            {
+                hobbies += chb.getText() + ",";
+            }
 
-        for (int i = 0; i < hobby_data.size(); i++) {
-           hobbies += " "+hobby_data.get(i)+",";
         }
         hobbies=hobbies.substring(0,hobbies.length()-1);
         myBundle.putString("hobbies",hobbies);
