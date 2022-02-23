@@ -21,12 +21,12 @@
         android:background="@drawable/result_background">
         <de.hdodenhof.circleimageview.CircleImageView
 
-            android:layout_width="100dp"
+            android:layout_width="130dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:src="@drawable/avatar"
             app:civ_border_color="@color/black"
-            app:civ_border_width="3dp"
+            app:civ_border_width="1dp"
             />
         <TextView
             android:id="@+id/result_Username"
@@ -37,6 +37,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="30dp"
+            android:layout_marginBottom="10dp"
            />
     </LinearLayout>
     <LinearLayout
@@ -45,7 +46,8 @@
         android:orientation="vertical"
         android:layout_margin="10dp">
         <TextView
-            android:layout_width="75dp"
+            android:layout_width="100dp"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
             android:text="Password: "
             android:textStyle="bold" />
@@ -54,9 +56,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textSize="15sp"
+            android:textColor="@color/black"
             android:inputType="textPassword"
             android:layout_marginTop="10dp"
-            android:background="@drawable/edittext_background"/>
+            android:background="@drawable/textline"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,7 +73,8 @@
             android:orientation="vertical"
            >
             <TextView
-                android:layout_width="75dp"
+                android:layout_width="100dp"
+                android:textSize="20sp"
                 android:layout_height="wrap_content"
                 android:text="Birthday:"
                 android:textStyle="bold"
@@ -79,8 +84,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
+                android:textSize="15sp"
+                android:textColor="@color/black"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_background"/>
+                android:background="@drawable/textline"/>
         </LinearLayout>
 
         <LinearLayout
@@ -89,7 +96,8 @@
             android:orientation="vertical"
             android:layout_marginLeft="90dp">
             <TextView
-                android:layout_width="75dp"
+                android:layout_width="100dp"
+                android:textSize="20sp"
                 android:layout_height="wrap_content"
                 android:text="Gender:"
                 android:textStyle="bold" />
@@ -98,8 +106,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
+                android:textSize="15sp"
+                android:textColor="@color/black"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_background"/>
+                android:background="@drawable/textline"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -108,7 +118,8 @@
         android:orientation="vertical"
         android:layout_margin="10dp">
         <TextView
-            android:layout_width="75dp"
+            android:layout_width="100dp"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
             android:text="Hobbies: "
             android:textStyle="bold" />
@@ -117,8 +128,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textSize="15sp"
+            android:textColor="@color/black"
             android:layout_marginTop="10dp"
-            android:background="@drawable/edittext_background"/>
+            android:background="@drawable/textline"/>
     </LinearLayout>
     <Button
         android:id="@+id/exit_Button"
@@ -127,5 +140,5 @@
         android:layout_height="wrap_content"
         android:text="Exit"
         android:layout_gravity="center"
-        android:backgroundTint="@color/grey"/>
+        android:backgroundTint="@color/light_blue"/>
 </LinearLayout>

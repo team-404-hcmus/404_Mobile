@@ -11,4 +11,5 @@
     <color name="holo_blue_dark">#ff0099cc</color>
     <color name="dialog_holo_light_frame">#ff0099cc</color>
     <color name="grey">#BABABA</color>
+    <color name="light_blue">#5ca0f2</color>
 </resources>
