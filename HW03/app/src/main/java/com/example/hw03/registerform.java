@@ -2,6 +2,7 @@ package com.example.hw03;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class registerform extends AppCompatActivity {
+public class registerform extends Activity {
 
     EditText username,password,retype,dob;
     Button reset,signup,datePicker;

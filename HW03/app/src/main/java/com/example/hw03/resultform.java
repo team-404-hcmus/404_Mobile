@@ -2,13 +2,14 @@ package com.example.hw03;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class resultform extends AppCompatActivity {
+public class resultform extends Activity {
     String username,password,dob,gender,hobbies;
     TextView username_view,pass_view,dob_view,gender_view,hobbies_view;
     Button exitBtn;
