@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A1_1809"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/txtMaso"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Họ tên: "
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/txtMaso"
+        android:id="@+id/txtHoten"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lớp: "
+        android:layout_below="@+id/txtHoten"
+        android:id="@+id/txtLop"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Điểm trung bình: "
+        android:layout_below="@+id/txtLop"
+        android:id="@+id/txtDTB"/>
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtDTB">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First"
+                android:id="@+id/btnFirst"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Previous"
+                android:id="@+id/btnPrevious"
+                android:layout_toRightOf="@+id/btnFirst"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:id="@+id/btnNext"
+                android:layout_toRightOf="@+id/btnPrevious"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last"
+                android:id="@+id/btnLast"
+                android:layout_toRightOf="@+id/btnNext"
+                />
+        </RelativeLayout>
+    </HorizontalScrollView>
+
+</RelativeLayout>
