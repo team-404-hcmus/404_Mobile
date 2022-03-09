@@ -42,18 +42,17 @@ public class FragmentRed  extends Fragment implements FragmentCallbacks {
         Previous = view_layout_red.findViewById(R.id.btnPrevious);
         Next = view_layout_red.findViewById(R.id.btnNext);
         Last = view_layout_red.findViewById(R.id.btnLast);
-    // show string argument supplied by constructor (if any!)
-    // clicking the button changes the time displayed and sends a copy to MainActivity
-
+        // show string argument supplied by constructor (if any!)
+        // clicking the button changes the time displayed and sends a copy to MainActivity
         return view_layout_red;
     }
     @Override
     public void onMsgFromMainToFragment(FragmentBlue.infor strValue) {
     // receiving a message from MainActivity (it may happen at any point in time)
-        MaSo.setText(strValue.MSSV);
-        HoTen.setText(strValue.HoTen);
-        Lop.setText(strValue.Lop);
-        DTB.setText(String.valueOf(strValue.DTB));
+        MaSo.setText("MSSV: " + strValue.MSSV);
+        HoTen.setText("Họ Tên: " + strValue.HoTen);
+        Lop.setText("Lớp: " + strValue.Lop);
+        DTB.setText(String.valueOf("Điểm: " + strValue.DTB));
 
     }
 }

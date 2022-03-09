@@ -62,10 +62,10 @@ public static FragmentBlue newInstance(String strArg) {
             LinearLayout layout_blue = (LinearLayout) inflater.inflate(R.layout.fragment1, null);
             MSSV =layout_blue.findViewById(R.id.ID_View);
             ListMSSV =layout_blue.findViewById(R.id.ID_ListView);
-            items.add(new infor("19127614","Nguyen 1","A1",9.0));
-            items.add(new infor("19127613","Nguyen 1","A1",9.0));
-            items.add(new infor("19127614","Nguyen 1","A1",9.0));
-            items.add(new infor("19127614","Nguyen 1","A1",9.0));
+            items.add(new infor("19127614","Nguyen Anh Tuan","A1",5.0));
+            items.add(new infor("19127613","Phan Dinh Tuan","A2",9.0));
+            items.add(new infor("19127615","Vo Gia Huy","A3",10.0));
+            items.add(new infor("19127632","Nguyen Hoang Vu","A4",10.0));
             ArrayList<String> Item_array= new ArrayList<>();
             Item_array.add("19127614");
             Item_array.add("19127613");
