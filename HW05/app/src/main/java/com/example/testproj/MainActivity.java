@@ -25,8 +25,7 @@ public class MainActivity extends FragmentActivity implements MainCallbacks{
     // MainCallback implementation (receiving messages coming from Fragments)
     @Override
     public void onMsgFromFragToMain(String sender, FragmentBlue.infor strValue) {
-// show message arriving to MainActivity
-
+    // show message arriving to MainActivity
         if (sender.equals("BLUE-FRAG")) { /* TODO: if needed, do here something on behalf of the RED fragment*/ }
         if (sender.equals("RED-FRAG")) {
             try { // forward blue-data to redFragment using its callback method

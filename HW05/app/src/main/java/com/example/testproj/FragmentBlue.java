@@ -21,7 +21,7 @@ public class FragmentBlue extends Fragment implements FragmentCallbacks{
     // this fragment shows a ListView
     public class infor
     {
-        public String MSSV,HoTen,Lop;
+        public String MSSV,HoTen,Lop,avatar;
         double DTB;
 
         public infor(String MSSV, String hoTen, String lop, double DTB) {
@@ -29,6 +29,10 @@ public class FragmentBlue extends Fragment implements FragmentCallbacks{
             HoTen = hoTen;
             Lop = lop;
             this.DTB = DTB;
+        }
+
+        public void setAvatar(String avatar) {
+            this.avatar = avatar;
         }
     };
     MainActivity main; Context context = null; String message = "";
