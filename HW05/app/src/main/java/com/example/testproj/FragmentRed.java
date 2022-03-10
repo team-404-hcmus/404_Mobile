@@ -52,7 +52,7 @@ public class FragmentRed  extends Fragment implements FragmentCallbacks {
         MaSo.setText("MSSV: " + strValue.MSSV);
         HoTen.setText("Họ Tên: " + strValue.HoTen);
         Lop.setText("Lớp: " + strValue.Lop);
-        DTB.setText(String.valueOf("Điểm: " + strValue.DTB));
+        DTB.setText(String.valueOf("Điểm Trung Bình: " + strValue.DTB));
 
     }
 }

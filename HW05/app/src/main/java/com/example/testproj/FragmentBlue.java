@@ -66,25 +66,27 @@ public static FragmentBlue newInstance(String strArg) {
             LinearLayout layout_blue = (LinearLayout) inflater.inflate(R.layout.fragment1, null);
             MSSV =layout_blue.findViewById(R.id.ID_View);
             ListMSSV =layout_blue.findViewById(R.id.ID_ListView);
-            items.add(new infor("19127614","Nguyen Anh Tuan","A1",5.0));
-            items.add(new infor("19127613","Phan Dinh Tuan","A2",9.0));
-            items.add(new infor("19127615","Vo Gia Huy","A3",10.0));
-            items.add(new infor("19127632","Nguyen Hoang Vu","A4",10.0));
-            ArrayList<String> Item_array= new ArrayList<>();
-            Item_array.add("19127614");
-            Item_array.add("19127613");
-            Item_array.add("19127612");
-            Item_array.add("19127611");
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(main,
-                    android.R.layout.simple_list_item_1,
-                    Item_array );
+//            items.add(new infor("19127614","Nguyen Anh Tuan","A1",5.0));
+//            items.add(new infor("19127613","Phan Dinh Tuan","A2",9.0));
+//            items.add(new infor("19127615","Vo Gia Huy","A3",10.0));
+//            items.add(new infor("19127632","Nguyen Hoang Vu","A4",10.0));
+            infor [] items={
+                    new infor("19127614","Nguyen Anh Tuan","A1",5.0),
+                    new infor("19127613","Phan Dinh Tuan","A2",9.0),
+                    new infor("19127615","Vo Gia Huy","A3",10.0),
+                    new infor("19127632","Nguyen Hoang Vu","A4",10.0)
+            };
+            items[0].setAvatar("dude");
+            items[1].setAvatar("dude");
+            items[2].setAvatar("dude");
+            items[3].setAvatar("dude");
+            customAdapter adapter=new customAdapter((MainActivity) getActivity(),items);
             ListMSSV.setAdapter(adapter);
             ListMSSV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    MSSV.setText("Mã số:" +items.get(i).MSSV);
-                    main.onMsgFromFragToMain("RED-FRAG",items.get(i));
+                public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                    MSSV.setText("Mã số:" +items[pos].MSSV);
+                    main.onMsgFromFragToMain("RED-FRAG",items[pos]);
                 }
             });
             return layout_blue;
