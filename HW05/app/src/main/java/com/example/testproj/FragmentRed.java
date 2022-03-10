@@ -23,7 +23,7 @@ public class FragmentRed  extends Fragment implements FragmentCallbacks {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-// Activities containing this fragment must implement interface: MainCallbacks
+    // Activities containing this fragment must implement interface: MainCallbacks
         if (!(getActivity() instanceof MainCallbacks)) {
             throw new IllegalStateException( "Activity must implement MainCallbacks");
         }
@@ -49,9 +49,9 @@ public class FragmentRed  extends Fragment implements FragmentCallbacks {
     @Override
     public void onMsgFromMainToFragment(FragmentBlue.infor strValue) {
     // receiving a message from MainActivity (it may happen at any point in time)
-        MaSo.setText("MSSV: " + strValue.MSSV);
-        HoTen.setText("Họ Tên: " + strValue.HoTen);
-        Lop.setText("Lớp: " + strValue.Lop);
+        MaSo.setText(String.valueOf("MSSV: " + strValue.MSSV));
+        HoTen.setText(String.valueOf("Họ Tên: " + strValue.HoTen));
+        Lop.setText(String.valueOf("Lớp: " + strValue.Lop));
         DTB.setText(String.valueOf("Điểm Trung Bình: " + strValue.DTB));
 
     }
