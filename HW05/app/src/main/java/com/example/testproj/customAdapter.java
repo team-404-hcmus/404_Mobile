@@ -1,6 +1,7 @@
 package com.example.testproj;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 public class customAdapter extends BaseAdapter {
     private Context context; // main activity’s context
     private LayoutInflater layoutInflater;
+    public int selectedPos=-1;
     FragmentBlue.infor[] listData; // thumbnail data set
     public customAdapter(Context mainActivityContext,  FragmentBlue.infor[] listData)
     {
@@ -45,6 +47,10 @@ public class customAdapter extends BaseAdapter {
         Log.i("CustomListView", "Res Name: "+ resName+"==> Res ID = "+ resID);
         return resID;
     }
+    public void setSelectedPos(int selecPos)
+    {
+        this.selectedPos=selecPos;
+    }
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
@@ -56,6 +62,10 @@ public class customAdapter extends BaseAdapter {
             holder.MSSV.setText(listData[position].MSSV);
             int imageId = this.getMipmapResIdByName(listData[position].avatar);
             holder.avatar.setImageResource(imageId);
+            if(position==this.selectedPos)
+            {
+                convertView.setBackgroundColor(Color.argb(125,75,236,90));
+            }
         } else {
             holder = (ViewHolder) convertView.getTag();
         }

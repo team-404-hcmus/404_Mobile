@@ -2,6 +2,7 @@ package com.example.testproj;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,6 +88,8 @@ public static FragmentBlue newInstance(String strArg) {
                 public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
                     MSSV.setText("Mã số:" +items[pos].MSSV);
                     main.onMsgFromFragToMain("RED-FRAG",items[pos]);
+                    adapter.setSelectedPos(pos);
+                    ListMSSV.setAdapter(adapter);
                 }
             });
             return layout_blue;
