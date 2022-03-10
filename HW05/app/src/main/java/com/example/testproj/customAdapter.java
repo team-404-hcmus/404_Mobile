@@ -51,6 +51,11 @@ public class customAdapter extends BaseAdapter {
     {
         this.selectedPos=selecPos;
     }
+
+    public int getSelectedPos() {
+        return selectedPos;
+    }
+
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {

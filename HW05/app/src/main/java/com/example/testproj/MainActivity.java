@@ -26,7 +26,24 @@ public class MainActivity extends FragmentActivity implements MainCallbacks{
     @Override
     public void onMsgFromFragToMain(String sender, FragmentBlue.infor strValue) {
     // show message arriving to MainActivity
-        if (sender.equals("BLUE-FRAG")) { /* TODO: if needed, do here something on behalf of the RED fragment*/ }
+        //red click btn
+        if (sender.equals("RedClick_First"))
+        {
+            blueFragment.onMsgFromMainToFragment("First");
+        }
+        if (sender.equals("RedClick_Last"))
+        {
+            blueFragment.onMsgFromMainToFragment("Last");
+        }
+        if (sender.equals("RedClick_Previous"))
+        {
+            blueFragment.onMsgFromMainToFragment("Previous");
+        }
+        if (sender.equals("RedClick_Next"))
+        {
+            blueFragment.onMsgFromMainToFragment("Next");
+        }
+        //blue send infor
         if (sender.equals("RED-FRAG")) {
             try { // forward blue-data to redFragment using its callback method
                 redFragment.onMsgFromMainToFragment(strValue);

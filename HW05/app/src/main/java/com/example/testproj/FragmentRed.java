@@ -44,9 +44,34 @@ public class FragmentRed  extends Fragment implements FragmentCallbacks {
         Last = view_layout_red.findViewById(R.id.btnLast);
         // show string argument supplied by constructor (if any!)
         // clicking the button changes the time displayed and sends a copy to MainActivity
+        First.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                main.onMsgFromFragToMain("RedClick_First",null);
+            }
+        });
+        Previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                main.onMsgFromFragToMain("RedClick_Previous",null);
+            }
+        });
+        Next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                main.onMsgFromFragToMain("RedClick_Next",null);
+            }
+        });
+        Last.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                main.onMsgFromFragToMain("RedClick_Last",null);
+            }
+        });
         return view_layout_red;
     }
     @Override
+    public void onMsgFromMainToFragment(String value){};
     public void onMsgFromMainToFragment(FragmentBlue.infor strValue) {
     // receiving a message from MainActivity (it may happen at any point in time)
         MaSo.setText(String.valueOf("MSSV: " + strValue.MSSV));
