@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#23002222"
+    android:orientation="vertical"
+    android:padding="6dp" >
+
+    <EditText
+        android:id="@+id/txtBox1"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_margin="10dp"
+        android:background="#ffffffff"
+        android:textSize="18sp" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:padding="6dp" >
+        <TextView
+            android:id="@+id/lblTopCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="20sp"
+            android:text= "percent" />
+        <ProgressBar
+            android:id="@+id/myBarHor"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnDoItAgain"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Start" />
+</LinearLayout>
