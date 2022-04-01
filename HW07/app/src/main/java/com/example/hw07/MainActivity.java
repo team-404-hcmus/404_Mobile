@@ -66,7 +66,8 @@ public class MainActivity extends Activity {
             }
         });
         // fill up the Main-GUI’s ListView with main news categories
-        adapterMainSubjects = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myUrlCaption);
+        int layoutID = R.layout.my_simple_list_item_1;
+        adapterMainSubjects = new ArrayAdapter<String>(this,layoutID, myUrlCaption);
         myMainListView.setAdapter(adapterMainSubjects);
     }
 }
