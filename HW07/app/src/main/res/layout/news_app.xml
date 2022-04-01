@@ -3,31 +3,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="NEWS APP"
         android:textSize="30sp"
+        android:textColor="@color/black"
         android:layout_marginBottom="30dp"/>
-    <TableLayout
-        android:layout_height="match_parent"
+    <LinearLayout
         android:layout_width="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/ThanhNienBtn"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:text="ThanhNiên"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:background="@drawable/border_background"/>
+        <TextView
+            android:id="@+id/VnExpressBtn"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="VNExpress"
+            android:textSize="25sp"
 
-        <TableRow android:layout_width="match_parent">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Thanh Niên" />
-            <Button
-                android:id="@+id/VnExpressBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="VNExpress"/>
-        </TableRow>
-        <TableRow>
-            <Button android:text="Dân Trí" />
-            <Button android:text="..." />
-        </TableRow>
-    </TableLayout>
+            android:background="@drawable/border_background"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+
+            android:id="@+id/TuoiTreBtn"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:text="Tuổi Trẻ"
+            android:textSize="25sp"
+            android:background="@drawable/border_background"/>
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="..."
+            android:gravity="center"
+            android:textSize="25sp"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/border_background"/>
+    </LinearLayout>
+
 </LinearLayout>
