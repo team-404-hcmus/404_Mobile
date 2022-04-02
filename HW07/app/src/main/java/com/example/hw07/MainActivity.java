@@ -6,11 +6,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.nio.channels.Channel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -20,21 +24,23 @@ public class MainActivity extends Activity {
     ArrayAdapter<String> adapterMainSubjects;
     ListView myMainListView;
     Context context;
+
     SingleItem selectedNewsItem;
-
+    ImageView icon;
     // hard-coding main NEWS categories (TODO: use a resource file)
-    String [][] myUrlCaptionMenu = {
+    String [][] myUrlCaptionMenu;
+    /*String [][] myUrlCaptionMenu = {
             {"https://vnexpress.net/rss/the-thao.rss", "Thể Thao"},
-    {"https://vnexpress.net/rss/oto-xe-may.rss", "Xe"},
-    {"https://vnexpress.net/rss/cuoi.rss", "Cười"},
-    {"https://vnexpress.net/rss/giao-duc.rss", "Giáo dục"},
-    {"https://vnexpress.net/rss/du-lich.rss", "Du lịch"},
-    {"https://vnexpress.net/rss/suc-khoe.rss", "Sức khỏe"},
-    {"https://vnexpress.net/rss/kinh-doanh.rss", "Kinh doanh"}
+            {"https://vnexpress.net/rss/oto-xe-may.rss", "Xe"},
+            {"https://vnexpress.net/rss/cuoi.rss", "Cười"},
+            {"https://vnexpress.net/rss/giao-duc.rss", "Giáo dục"},
+            {"https://vnexpress.net/rss/du-lich.rss", "Du lịch"},
+            {"https://vnexpress.net/rss/suc-khoe.rss", "Sức khỏe"},
+            {"https://vnexpress.net/rss/kinh-doanh.rss", "Kinh doanh"}
+    };*/
+    String[] myUrlCaption;
+    String[] myUrlAddress;
 
-    };
-    String[] myUrlCaption = new String[myUrlCaptionMenu.length];
-    String[] myUrlAddress = new String[myUrlCaptionMenu.length];
     public static String niceDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("EE MMM d, yyyy",
                 Locale.US);
@@ -42,6 +48,54 @@ public class MainActivity extends Activity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //set Item rss base on newspaper
+        Intent news_intent = getIntent();
+        String News = news_intent.getStringExtra("News");
+        if(News.equals("VnExpress"))
+        {
+            myUrlCaptionMenu = new String[][]{
+                    {"https://vnexpress.net/rss/the-thao.rss", "Thể Thao"},
+                    {"https://vnexpress.net/rss/oto-xe-may.rss", "Xe"},
+                    {"https://vnexpress.net/rss/cuoi.rss", "Cười"},
+                    {"https://vnexpress.net/rss/giao-duc.rss", "Giáo dục"},
+                    {"https://vnexpress.net/rss/du-lich.rss", "Du lịch"},
+                    {"https://vnexpress.net/rss/suc-khoe.rss", "Sức khỏe"},
+                    {"https://vnexpress.net/rss/kinh-doanh.rss", "Kinh doanh"}
+            };
+
+        }
+        else if(News.equals("ThanhNien"))
+        {
+
+            myUrlCaptionMenu = new String[][]{
+                    {"https://thanhnien.vn/rss/thoi-su-4.rss", "Thời Sự"},
+                    {"https://thanhnien.vn/rss/chao-ngay-moi-2.rss", "Chào Ngày Mới"},
+                    {"https://thanhnien.vn/rss/the-gioi-66.rss", "Thế Giới"},
+                    {"https://thanhnien.vn/rss/van-hoa-93.rss", "Văn Hóa"},
+                    {"https://thanhnien.vn/rss/giai-tri-285.rss", "Giải Trí"},
+                    {"https://thanhnien.vn/rss/the-thao-318.rss", "Thể Thao"},
+                    {"https://thanhnien.vn/rss/doi-song-17.rss", "Đời Sống"},
+                    {"https://thanhnien.vn/rss/tai-chinh-kinh-doanh-49.rss", "Tài Chính - Kinh Doanh"}
+            };
+
+        }
+        else if(News.equals("TuoiTre"))
+        {
+
+            myUrlCaptionMenu = new String[][]{
+                    {"https://tuoitre.vn/rss/the-gioi.rss", "Thế Giới"},
+                    {"https://tuoitre.vn/rss/kinh-doanh.rss", "Kinh Doanh"},
+                    {"https://tuoitre.vn/rss/xe.rss", "Xe"},
+                    {"https://tuoitre.vn/rss/van-hoa.rss", "Văn Hóa"},
+                    {"https://tuoitre.vn/rss/the-thao.rss", "Thể Thao"},
+                    {"https://tuoitre.vn/rss/khoa-hoc.rss", "Khoa Học"},
+                    {"https://tuoitre.vn/rss/thoi-su.rss", "Thời Sự"},
+                    {"https://tuoitre.vn/rss/thu-gian.rss", "Thư Giãn"}
+            };
+
+        }
+        myUrlCaption = new String[myUrlCaptionMenu.length];
+        myUrlAddress = new String[myUrlCaptionMenu.length];
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         for (int i=0; i<myUrlAddress.length; i++) {
@@ -66,7 +120,8 @@ public class MainActivity extends Activity {
             }
         });
         // fill up the Main-GUI’s ListView with main news categories
-        adapterMainSubjects = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myUrlCaption);
+        int layoutID = R.layout.my_simple_list_item_1;
+        adapterMainSubjects = new ArrayAdapter<String>(this,layoutID, myUrlCaption);
         myMainListView.setAdapter(adapterMainSubjects);
     }
 }

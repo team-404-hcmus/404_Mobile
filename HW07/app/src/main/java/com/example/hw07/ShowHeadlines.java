@@ -60,7 +60,7 @@ public class ShowHeadlines extends AppCompatActivity {
         //CAUTION: sometimes TITLE and DESCRIPTION include HTML markers
             final Uri storyLink = Uri.parse(selectedStoryItem.getLink());
             AlertDialog.Builder myBuilder = new AlertDialog.Builder(this);
-            myBuilder.setIcon(R.drawable.icon_vnexpress)
+            myBuilder.setIcon(R.drawable.icon)
                     .setTitle(Html.fromHtml(urlCaption) )
                     .setMessage(title + "\n\n" + Html.fromHtml(description) + "\n")
                     .setPositiveButton("Close", null)
