@@ -1,6 +1,7 @@
 package com.example.testproj;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,7 +72,14 @@ public class FragmentRed  extends Fragment implements FragmentCallbacks {
         return view_layout_red;
     }
     @Override
-    public void onMsgFromMainToFragment(String value){};
+    public void onMsgFromMainToFragment(String value){}
+
+    @Override
+    public void sendDbObject(SQLiteDatabase db) {
+
+    }
+
+    ;
     public void onMsgFromMainToFragment(FragmentBlue.infor strValue) {
     // receiving a message from MainActivity (it may happen at any point in time)
         MaSo.setText(String.valueOf("MSSV: " + strValue.MSSV));

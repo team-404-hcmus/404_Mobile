@@ -1,6 +1,8 @@
 package com.example.testproj;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 
 public class FragmentBlue extends Fragment implements FragmentCallbacks{
     // this fragment shows a ListView
+    SQLiteDatabase db;
     public class infor
     {
         public String MSSV,HoTen,Lop,avatar;
@@ -51,19 +54,45 @@ public class FragmentBlue extends Fragment implements FragmentCallbacks{
             fragment.setArguments(args);
             return fragment;
         }
-        infor [] items={
-                new infor("19127614","Nguyen Anh Tuan","A1",5.0,"dude"),
-                new infor("19127613","Phan Dinh Tuan","A2",9.0,"dude"),
-                new infor("19127615","Vo Gia Huy","A3",10.0,"dude"),
-                new infor("19127632","Nguyen Hoang Vu","A4",10.0,"dude")
-        };
 
+       ArrayList<infor> items_al= new ArrayList<>();
+//               {
+//                new infor("19127614","Nguyen Anh Tuan","A1",5.0,"dude"),
+//                new infor("19127613","Phan Dinh Tuan","A2",9.0,"dude"),
+//                new infor("19127615","Vo Gia Huy","A3",10.0,"dude"),
+//                new infor("19127632","Nguyen Hoang Vu","A4",10.0,"dude")
+//        };
+        infor[] items;
+        public void QueryAll()
+        {
+            try { // hard-coded SQL select with no arguments
+                Cursor c1 = db.rawQuery("select * from HOCSINH", null);
+               showCursor(c1);
+                items = new infor[items_al.size()];
+                items = items_al.toArray(items);
+            }
+            catch (Exception e)
+            {
+                Log.e("Query DB","\nERROR " + e.getMessage());
+            }
+        }
+        private String showCursor( Cursor cursor) {
+            //show SCHEMA (column names & types)
+            cursor.moveToPosition(-1); //reset cursor's top
+            // now get the rows
+            cursor.moveToPosition(-1); //reset cursor's top
+            while (cursor.moveToNext()) {
+                items_al.add(new infor(cursor.getString(0),cursor.getString(1),cursor.getString(2),10,"dude"));
+            }
+            return "";
+        }
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             try {
                 context = getActivity(); // use this reference to invoke main callbacks
                 main = (MainActivity) getActivity();
+                QueryAll();
             }
                 catch (IllegalStateException e) {
                 throw new IllegalStateException("MainActivity must implement callbacks");
@@ -134,6 +163,13 @@ public class FragmentBlue extends Fragment implements FragmentCallbacks{
 
             }
         };
-        public void onMsgFromMainToFragment(infor Value) {}
-            // receiving a message from MainActivity (it may happen at any point in time)
+        public void onMsgFromMainToFragment(infor Value) {
+
+        }
+
+    @Override
+    public void sendDbObject(SQLiteDatabase _db) {
+        this.db = _db;
+    }
+    // receiving a message from MainActivity (it may happen at any point in time)
 }// class
