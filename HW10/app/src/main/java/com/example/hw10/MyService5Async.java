@@ -40,6 +40,7 @@ public class MyService5Async extends Service {
         // we place slow work of service in an AsynTask so the response we send our caller who run
         // a "startService(...)" method gets a quick OK from us.
         new ComputeFibonacciRecursivelyTask().execute(20, 50);
+        isRunning = true;
     }
 
     @Override
@@ -48,7 +49,7 @@ public class MyService5Async extends Service {
         Log.e("MyService5", "onDestroy");
         Log.e ("<<MyService5Async-onDestroy>>", "I am dead-5-Async");
         isRunning = false;
-
+        super.onDestroy();
     }
 
     //struct fibonacci
@@ -68,6 +69,10 @@ public class MyService5Async extends Service {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
+            if(!isRunning)
+            {
+                return;
+            }
             Intent intentFilter5 = new Intent("matos.action.GOSERVICE5");
             String data = "dataItem-5-fibonacci-AsyncTask" + values[0] + ": " + values[1];
             intentFilter5.putExtra("MyService5DataItem", data);
