@@ -74,11 +74,15 @@ public class MyService6 extends Service {
             // define update frequency for GPS readings
             long minTime = 2000; // 2 seconds
             float minDistance = 5; // 5 meter
+
             // request GPS updates
             if ( ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION )
-                    != PackageManager.PERMISSION_GRANTED )
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,minTime,minDistance,
-                    myLocationListener);
+                    == PackageManager.PERMISSION_GRANTED )
+            {
+                lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,minTime,minDistance,
+                        myLocationListener);
+                Log.e("check", "checked");
+            }
             Looper.loop();
         }
         catch (Exception e)
